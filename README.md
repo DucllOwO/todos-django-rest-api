@@ -1,6 +1,6 @@
 # TodoAPI
 
-This project is a Django REST API application for managing a basic todo list. It includes CRUD operations, token-based authentication, including tests to cover the API endpoints and auto-generated API documentation using Swagger.
+This project is a Django REST API application for managing a basic todo list. It includes CRUD operations with pagination, token-based authentication, including tests to cover the API endpoints and auto-generated API documentation using Swagger.
 
 ## Setup Instructions
 
@@ -11,40 +11,51 @@ git clone <your-repository-url>
 cd TodoAPI
 ```
 
-2. Create and Activate a Virtual Environment
+2. Run the application
 
-• On macOS/Linux:
+   2.1 Run locally
 
-```
-python3 -m venv venv
-source venv/bin/activate
-```
+   1. Create and Activate a Virtual Environment
 
-3. Install Dependencies
+   • On macOS/Linux:
 
-```
-pip install -r requirements.txt
-```
+   ```
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
-4. Apply Migrations
+   2. Install Dependencies
 
-```
-python manage.py migrate
-```
+   ```
+   pip install -r requirements.txt
+   ```
 
-5. Create a Superuser
+   3. Apply Migrations
 
-```
-python manage.py createsuperuser
-```
+   ```
+   python manage.py migrate
+   ```
 
-Follow the prompts to set up the superuser account to login.
+   4. Create a Superuser
 
-6. Run the Development Server
+   ```
+   python manage.py createsuperuser
+   ```
 
-```
-python manage.py runserver
-```
+   Follow the prompts to set up the superuser account to login.
+
+   5. Run the Development Server
+
+   ```
+   python manage.py runserver
+   ```
+
+   2.2 Run with docker
+
+   ```
+   docker build -t todos-drk .
+   docker run -d -p 8000:8000 todos-drk
+   ```
 
 The application will be accessible at http://127.0.0.1:8000/api/v1.
 
@@ -84,6 +95,8 @@ The following API endpoints are available:
   - DELETE /api/v1/todos/{id}/
 
 ## Authentication
+
+> You can use this username/password to log in to the app: admin/vietnam123
 
 This API uses token-based authentication. To interact with the API endpoints, follow these steps:
 
